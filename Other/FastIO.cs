@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algorizem.Other;
+﻿namespace Algorizem.Other;
 
 /// <summary>
 /// 빠른 입출력
@@ -35,11 +29,11 @@ public class FastIO
     /// <param name="str"></param>
     public static void Cin(out string str) => str = Cin();
     /// <summary>
-    /// 한줄에서 두개의 문자열을 끓어서 입력받습니다.
+    /// 한줄에서 두개의 문자열을 끊어서 입력받습니다.
     /// </summary>
     /// <param name="a">앞선 문자열</param>
     /// <param name="b">마지막 문자열</param>
-    /// <param name="c">끓는 기준</param>
+    /// <param name="c">끊는 기준</param>
     public static void Cin(out string a , out string b , char c = ' ') { var r = Cin().Split(c); a = r[0]; b = r[1]; }
     public static void Cin(out int[] numarr , char c = ' ') => numarr = Array.ConvertAll(Cin().Split(c) , int.Parse);
     public static void Cin(out uint[] numarr , char c = ' ') => numarr = Cin().Split(' ').Select(uint.Parse).ToArray();
