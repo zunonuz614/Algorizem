@@ -16,12 +16,12 @@ public class Dijkstra : LinkedListGraph<(uint point,ulong distance)>
     /// <param name="count">정점의 갯수</param>
     public Dijkstra(in uint count) : base(count) { }
     /// <summary>
-    /// 간선을 추가합니다.
+    /// 단방향 간선을 추가합니다.
     /// </summary>
     /// <param name="starting">시작점</param>
     /// <param name="ending">도착점</param>
     /// <param name="distance">거리</param>
-    public virtual void AddLine(in uint starting , in uint ending , in ulong distance)
+    public virtual void AddOneWay(in uint starting , in uint ending , in ulong distance)
     {
         _CheckPointIndex(starting);
         _CheckPointIndex(ending);
@@ -33,10 +33,10 @@ public class Dijkstra : LinkedListGraph<(uint point,ulong distance)>
     /// <param name="starting">시작점</param>
     /// <param name="ending">도착점</param>
     /// <param name="distance">거리</param>
-    public virtual void AddTwoWayLine(in uint starting , in uint ending , in ulong distance)
+    public virtual void AddTwoWay(in uint starting , in uint ending , in ulong distance)
     {
-        this.AddLine(starting , ending , distance);
-        this.AddLine(ending , starting , distance);
+        this.AddOneWay(starting , ending , distance);
+        this.AddOneWay(ending , starting , distance);
     }
     /// <summary>
     /// 데이크스트라를 실행합니다.
@@ -52,9 +52,11 @@ public class Dijkstra : LinkedListGraph<(uint point,ulong distance)>
 
         PriorityQueue<uint , ulong> queue = new();
         queue.Enqueue(starting , 0);
-        while (queue.Count > 0)
+        while (queue.TryDequeue(out uint me, out ulong my_dist))
         {
-            uint me = queue.Dequeue();
+            if (TotalDistance[me] < my_dist)
+                continue;
+
             foreach (var line in Lines[me])
             {
                 ulong next_dist = TotalDistance[me] + line.distance;
