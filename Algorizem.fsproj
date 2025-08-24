@@ -5,7 +5,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup><Compile Include="Data\PrefixSum.fs" />
     <Compile Include="Data\BitSet.fs" />
     <Compile Include="Arithmetic\Factorial.fs" />
     <Compile Include="Arithmetic\PrimeSieve.fs" />
