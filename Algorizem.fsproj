@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Data\BitSet.fs" />
+    <Compile Include="Arithmetic\Factorial.fs" />
+    <Compile Include="Arithmetic\PrimeSieve.fs" />
+    <Compile Include="Exception.fs" />
+    <Compile Include="Data\Compressor.fs" />
+    <Compile Include="Data\DisjointSet.fs" />
+    <Compile Include="Data\SegmentTree.fs" />
+    <Compile Include="Graph\LinkedListGraph.fs" />
+    <Compile Include="Graph\NetworkFlow\EdmondsKarp.fs" />
+    <Compile Include="Graph\ShortestPath\Dijkstra.fs" />
+    <Compile Include="Other\FastIO.fs" />
+  </ItemGroup>
+
+</Project>
